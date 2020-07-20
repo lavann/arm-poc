@@ -9,7 +9,7 @@
             "value": "lanallai-lapp-in"
         },
         "storageAccountName": {
-            "value": "lanallaistorageaccount1"
+            "value": "lanallaistoremvp"
         },
         "appServicePlanName": {
             "value": "asp-lanallai1"

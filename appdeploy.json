@@ -61,11 +61,11 @@
             ]
         },
         {
-            "name": "[parameters('serviceBusNamespaceName')]",
+            "name": "[parameters('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",
             "tags": {
-                "displayName": "[parameters('serviceBusNamespaceName')]"
+                "displayName": "[parameters('storageAccountName')]"
             },
             "location": "[resourceGroup().location]",
             "kind": "StorageV2",
@@ -132,6 +132,13 @@
 
     ],
     "outputs": {
-
+        "NamespaceConnectionString": {
+            "type": "string",
+            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
+        },
+        "SharedAccessPolicyPrimaryKey": {
+            "type": "string",
+            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
+        }
     }
 }
